@@ -1,0 +1,362 @@
+{
+  "behaviors": {
+    "Player": {
+      "scriptId": "8",
+      "line": 64,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "sensitivity",
+          "type": "number"
+        },
+        {
+          "name": "speed",
+          "type": "number"
+        }
+      ]
+    },
+    "AbstractPin": {
+      "scriptId": "16",
+      "line": 9,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "value",
+          "type": "any"
+        }
+      ]
+    },
+    "InPin": {
+      "scriptId": "16",
+      "line": 30,
+      "parentBehavior": "AbstractPin",
+      "properties": [
+        {
+          "name": "color_high",
+          "type": "string"
+        },
+        {
+          "name": "color_low",
+          "type": "string"
+        }
+      ]
+    },
+    "OutPin": {
+      "scriptId": "16",
+      "line": 87,
+      "parentBehavior": "AbstractPin",
+      "properties": []
+    },
+    "BoolInPin": {
+      "scriptId": "18",
+      "line": 9,
+      "parentBehavior": "BasicInPin",
+      "properties": [
+        {
+          "name": "value",
+          "type": "boolean"
+        }
+      ]
+    },
+    "BoolOutPin": {
+      "scriptId": "18",
+      "line": 16,
+      "parentBehavior": "OutPin",
+      "properties": [
+        {
+          "name": "value",
+          "type": "boolean"
+        }
+      ]
+    },
+    "ColorInPin": {
+      "scriptId": "21",
+      "line": 2,
+      "parentBehavior": "InPin",
+      "properties": []
+    },
+    "ColorOutPin": {
+      "scriptId": "21",
+      "line": 26,
+      "parentBehavior": "OutPin",
+      "properties": []
+    },
+    "Vector2DInPin": {
+      "scriptId": "23",
+      "line": 18,
+      "parentBehavior": "AbstractVectorInPin",
+      "properties": [
+        {
+          "name": "value",
+          "type": "Sup.Math.Vector2"
+        }
+      ]
+    },
+    "Vector2DOutPin": {
+      "scriptId": "23",
+      "line": 27,
+      "parentBehavior": "OutPin",
+      "properties": [
+        {
+          "name": "value",
+          "type": "Sup.Math.Vector2"
+        }
+      ]
+    },
+    "QuaternionInPin": {
+      "scriptId": "24",
+      "line": 2,
+      "parentBehavior": "InPin",
+      "properties": []
+    },
+    "QuaternionOutPin": {
+      "scriptId": "24",
+      "line": 26,
+      "parentBehavior": "OutPin",
+      "properties": []
+    },
+    "ButtonBlock": {
+      "scriptId": "25",
+      "line": 2,
+      "parentBehavior": "InteractBlock",
+      "properties": []
+    },
+    "ToggleBlock": {
+      "scriptId": "25",
+      "line": 25,
+      "parentBehavior": "InteractBlock",
+      "properties": []
+    },
+    "NumberInputBlock": {
+      "scriptId": "27",
+      "line": 0,
+      "parentBehavior": "NumberBlock",
+      "properties": []
+    },
+    "Vector3DInPin": {
+      "scriptId": "23",
+      "line": 38,
+      "parentBehavior": "AbstractVectorInPin",
+      "properties": [
+        {
+          "name": "value",
+          "type": "Sup.Math.Vector3"
+        }
+      ]
+    },
+    "Vector3DOutPin": {
+      "scriptId": "23",
+      "line": 47,
+      "parentBehavior": "OutPin",
+      "properties": [
+        {
+          "name": "value",
+          "type": "Sup.Math.Vector3"
+        }
+      ]
+    },
+    "BoolGateBlock": {
+      "scriptId": "28",
+      "line": 0,
+      "parentBehavior": "AbstractBlock",
+      "properties": []
+    },
+    "BoolGate2Block": {
+      "scriptId": "28",
+      "line": 11,
+      "parentBehavior": "BoolGateBlock",
+      "properties": []
+    },
+    "NOTGate": {
+      "scriptId": "28",
+      "line": 23,
+      "parentBehavior": "BoolGateBlock",
+      "properties": []
+    },
+    "ANDGate": {
+      "scriptId": "28",
+      "line": 28,
+      "parentBehavior": "BoolGate2Block",
+      "properties": []
+    },
+    "ORGate": {
+      "scriptId": "28",
+      "line": 33,
+      "parentBehavior": "BoolGate2Block",
+      "properties": []
+    },
+    "XORGate": {
+      "scriptId": "28",
+      "line": 38,
+      "parentBehavior": "BoolGate2Block",
+      "properties": []
+    },
+    "NANDGate": {
+      "scriptId": "28",
+      "line": 43,
+      "parentBehavior": "BoolGate2Block",
+      "properties": []
+    },
+    "NORGate": {
+      "scriptId": "28",
+      "line": 48,
+      "parentBehavior": "BoolGate2Block",
+      "properties": []
+    },
+    "XNORGate": {
+      "scriptId": "28",
+      "line": 53,
+      "parentBehavior": "BoolGate2Block",
+      "properties": []
+    },
+    "NumberGateBlock": {
+      "scriptId": "29",
+      "line": 0,
+      "parentBehavior": "NumberBlock",
+      "properties": []
+    },
+    "NumberGate2Block": {
+      "scriptId": "29",
+      "line": 11,
+      "parentBehavior": "NumberGateBlock",
+      "properties": []
+    },
+    "AddGate": {
+      "scriptId": "29",
+      "line": 23,
+      "parentBehavior": "NumberGate2Block",
+      "properties": []
+    },
+    "SubtractGate": {
+      "scriptId": "29",
+      "line": 28,
+      "parentBehavior": "NumberGate2Block",
+      "properties": []
+    },
+    "MultiplyGate": {
+      "scriptId": "29",
+      "line": 33,
+      "parentBehavior": "NumberGate2Block",
+      "properties": []
+    },
+    "DivideGate": {
+      "scriptId": "29",
+      "line": 38,
+      "parentBehavior": "NumberGate2Block",
+      "properties": []
+    },
+    "ModuloGate": {
+      "scriptId": "29",
+      "line": 43,
+      "parentBehavior": "NumberGate2Block",
+      "properties": []
+    },
+    "NumberInPin": {
+      "scriptId": "18",
+      "line": 25,
+      "parentBehavior": "BasicInPin",
+      "properties": [
+        {
+          "name": "value",
+          "type": "number"
+        }
+      ]
+    },
+    "NumberOutPin": {
+      "scriptId": "18",
+      "line": 32,
+      "parentBehavior": "OutPin",
+      "properties": [
+        {
+          "name": "value",
+          "type": "number"
+        }
+      ]
+    },
+    "TextInPin": {
+      "scriptId": "18",
+      "line": 41,
+      "parentBehavior": "BasicInPin",
+      "properties": [
+        {
+          "name": "value",
+          "type": "string"
+        }
+      ]
+    },
+    "TextOutPin": {
+      "scriptId": "18",
+      "line": 48,
+      "parentBehavior": "OutPin",
+      "properties": [
+        {
+          "name": "value",
+          "type": "string"
+        }
+      ]
+    },
+    "TextInputBlock": {
+      "scriptId": "31",
+      "line": 0,
+      "parentBehavior": "AbstractBlock",
+      "properties": []
+    },
+    "TextGateBlock": {
+      "scriptId": "30",
+      "line": 0,
+      "parentBehavior": "TextBlock",
+      "properties": []
+    },
+    "TextGate2Block": {
+      "scriptId": "30",
+      "line": 11,
+      "parentBehavior": "TextGateBlock",
+      "properties": []
+    },
+    "ConcatGate": {
+      "scriptId": "30",
+      "line": 23,
+      "parentBehavior": "TextGate2Block",
+      "properties": []
+    },
+    "BoolOutput": {
+      "scriptId": "32",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "color_high",
+          "type": "string"
+        },
+        {
+          "name": "color_low",
+          "type": "string"
+        }
+      ]
+    },
+    "AbstractVectorInPin": {
+      "scriptId": "23",
+      "line": 0,
+      "parentBehavior": "InPin",
+      "properties": []
+    },
+    "BasicInPin": {
+      "scriptId": "18",
+      "line": 0,
+      "parentBehavior": "InPin",
+      "properties": []
+    },
+    "AbstractBlock": {
+      "scriptId": "17",
+      "line": 7,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "InteractBlock": {
+      "scriptId": "17",
+      "line": 27,
+      "parentBehavior": "AbstractBlock",
+      "properties": []
+    }
+  }
+}

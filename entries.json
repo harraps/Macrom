@@ -1,0 +1,310 @@
+[
+  {
+    "id": "2",
+    "name": "src",
+    "type": null,
+    "children": [
+      {
+        "id": "10",
+        "name": "InputManager",
+        "type": "script"
+      },
+      {
+        "id": "11",
+        "name": "Game",
+        "type": "script"
+      },
+      {
+        "id": "0",
+        "name": "player",
+        "type": null,
+        "children": [
+          {
+            "id": "8",
+            "name": "Player",
+            "type": "script"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "name": "pins",
+        "type": null,
+        "children": [
+          {
+            "id": "16",
+            "name": "AbstractPins",
+            "type": "script"
+          },
+          {
+            "id": "18",
+            "name": "BasicPins",
+            "type": "script"
+          },
+          {
+            "id": "21",
+            "name": "ColorPin",
+            "type": "script"
+          },
+          {
+            "id": "23",
+            "name": "VectorPins",
+            "type": "script"
+          },
+          {
+            "id": "24",
+            "name": "QuaternionPin",
+            "type": "script"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "name": "blocks",
+        "type": null,
+        "children": [
+          {
+            "id": "17",
+            "name": "Block",
+            "type": "script"
+          },
+          {
+            "id": "5",
+            "name": "inputs",
+            "type": null,
+            "children": [
+              {
+                "id": "25",
+                "name": "BoolInput",
+                "type": "script"
+              },
+              {
+                "id": "27",
+                "name": "NumberInput",
+                "type": "script"
+              },
+              {
+                "id": "31",
+                "name": "TextInput",
+                "type": "script"
+              }
+            ]
+          },
+          {
+            "id": "6",
+            "name": "gates",
+            "type": null,
+            "children": [
+              {
+                "id": "28",
+                "name": "BoolGate",
+                "type": "script"
+              },
+              {
+                "id": "29",
+                "name": "NumberGate",
+                "type": "script"
+              },
+              {
+                "id": "30",
+                "name": "TextGate",
+                "type": "script"
+              }
+            ]
+          },
+          {
+            "id": "26",
+            "name": "casts",
+            "type": null,
+            "children": []
+          },
+          {
+            "id": "7",
+            "name": "outputs",
+            "type": null,
+            "children": [
+              {
+                "id": "32",
+                "name": "BoolOutput",
+                "type": "script"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1",
+    "name": "res",
+    "type": null,
+    "children": [
+      {
+        "id": "33",
+        "name": "models",
+        "type": null,
+        "children": [
+          {
+            "id": "35",
+            "name": "input",
+            "type": "model"
+          },
+          {
+            "id": "34",
+            "name": "output",
+            "type": "model"
+          },
+          {
+            "id": "36",
+            "name": "pixel",
+            "type": "model"
+          },
+          {
+            "id": "37",
+            "name": "plate",
+            "type": "model"
+          },
+          {
+            "id": "38",
+            "name": "stand",
+            "type": "model"
+          },
+          {
+            "id": "39",
+            "name": "switch",
+            "type": "model"
+          },
+          {
+            "id": "40",
+            "name": "button",
+            "type": "model"
+          },
+          {
+            "id": "50",
+            "name": "wire",
+            "type": "model"
+          }
+        ]
+      },
+      {
+        "id": "57",
+        "name": "font",
+        "type": "font"
+      },
+      {
+        "id": "59",
+        "name": "dot",
+        "type": "sprite"
+      }
+    ]
+  },
+  {
+    "id": "12",
+    "name": "prefab",
+    "type": null,
+    "children": [
+      {
+        "id": "13",
+        "name": "player",
+        "type": null,
+        "children": [
+          {
+            "id": "14",
+            "name": "Player",
+            "type": "scene"
+          },
+          {
+            "id": "60",
+            "name": "HUD",
+            "type": "scene"
+          }
+        ]
+      },
+      {
+        "id": "44",
+        "name": "pins",
+        "type": null,
+        "children": [
+          {
+            "id": "45",
+            "name": "in",
+            "type": null,
+            "children": [
+              {
+                "id": "47",
+                "name": "bool",
+                "type": "scene"
+              },
+              {
+                "id": "51",
+                "name": "number",
+                "type": "scene"
+              },
+              {
+                "id": "52",
+                "name": "text",
+                "type": "scene"
+              }
+            ]
+          },
+          {
+            "id": "46",
+            "name": "out",
+            "type": null,
+            "children": [
+              {
+                "id": "48",
+                "name": "bool",
+                "type": "scene"
+              },
+              {
+                "id": "53",
+                "name": "number",
+                "type": "scene"
+              },
+              {
+                "id": "54",
+                "name": "text",
+                "type": "scene"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "41",
+        "name": "blocks",
+        "type": null,
+        "children": [
+          {
+            "id": "42",
+            "name": "bool",
+            "type": null,
+            "children": [
+              {
+                "id": "43",
+                "name": "Switch",
+                "type": "scene"
+              },
+              {
+                "id": "49",
+                "name": "Button",
+                "type": "scene"
+              },
+              {
+                "id": "56",
+                "name": "AND",
+                "type": "scene"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "name": "Playground",
+    "type": "scene"
+  }
+]

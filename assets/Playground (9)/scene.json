@@ -1,0 +1,140 @@
+{
+  "formatVersion": 1,
+  "nodes": [
+    {
+      "id": "0",
+      "name": "PLAYER",
+      "children": [],
+      "components": [],
+      "position": {
+        "x": -2.9297451972961426,
+        "y": -1.4038368463516235,
+        "z": 7.8960490226745605
+      },
+      "orientation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "visible": true,
+      "layer": 0,
+      "prefab": {
+        "sceneAssetId": "14"
+      }
+    },
+    {
+      "id": "3",
+      "name": "HUD",
+      "children": [],
+      "components": [],
+      "position": {
+        "x": 0,
+        "y": -10,
+        "z": 0
+      },
+      "orientation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "visible": true,
+      "layer": 0,
+      "prefab": {
+        "sceneAssetId": "60"
+      }
+    },
+    {
+      "id": "1",
+      "name": "block",
+      "children": [],
+      "components": [],
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 7.896049499511719
+      },
+      "orientation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "visible": true,
+      "layer": 0,
+      "prefab": {
+        "sceneAssetId": "43"
+      }
+    },
+    {
+      "id": "2",
+      "name": "and",
+      "children": [],
+      "components": [],
+      "position": {
+        "x": -2.7804001919607675,
+        "y": -1.1321294803028144,
+        "z": 4.95365979932493
+      },
+      "orientation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "visible": true,
+      "layer": 0,
+      "prefab": {
+        "sceneAssetId": "56"
+      }
+    },
+    {
+      "id": "4",
+      "name": "button",
+      "children": [],
+      "components": [],
+      "position": {
+        "x": -3.6108377588448217,
+        "y": -1.048033603342457,
+        "z": 7.51273018083462
+      },
+      "orientation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "visible": true,
+      "layer": 0,
+      "prefab": {
+        "sceneAssetId": "49"
+      }
+    }
+  ]
+}
