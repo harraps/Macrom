@@ -95,7 +95,7 @@
               "type": "TextRenderer",
               "config": {
                 "fontAssetId": "57",
-                "text": "AND",
+                "text": "OR",
                 "alignment": "center",
                 "size": 32,
                 "color": null,
@@ -106,7 +106,7 @@
           ],
           "position": {
             "x": 0,
-            "y": 0,
+            "y": -0.2,
             "z": 0
           },
           "orientation": {
@@ -116,9 +116,9 @@
             "w": 1
           },
           "scale": {
-            "x": 0.1,
-            "y": 0.1,
-            "z": 0.1
+            "x": 1,
+            "y": 1,
+            "z": 1
           },
           "visible": true,
           "layer": 0,
@@ -129,7 +129,7 @@
         {
           "type": "Behavior",
           "config": {
-            "behaviorName": "ANDGate",
+            "behaviorName": "ORGate",
             "propertyValues": {}
           },
           "id": "0"

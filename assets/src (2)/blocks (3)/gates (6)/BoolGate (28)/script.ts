@@ -7,6 +7,11 @@ abstract class BoolGateBlock extends AbstractBlock {
         this.inA = this.actor.getChild("A").getBehavior(BoolInPin);
         this.inA.init(this);
     }
+    
+    public onDestroy(){
+        if(this.inA) this.inA.destroyPin();
+        super.onDestroy();
+    }
 }
 
 abstract class BoolGate2Block extends BoolGateBlock{
@@ -19,6 +24,10 @@ abstract class BoolGate2Block extends BoolGateBlock{
         this.inB.init(this);
     }
     
+    public onDestroy(){
+        if(this.inB) this.inB.destroyPin();
+        super.onDestroy();
+    }
 }
 
 class NOTGate extends BoolGateBlock{

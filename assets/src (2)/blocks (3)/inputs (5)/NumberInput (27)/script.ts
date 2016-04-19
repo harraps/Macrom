@@ -1,4 +1,4 @@
-class NumberInputBlock extends AbstractBlock implements IInteract {
+class NumberInputBlock extends InteractibleBlock {
     
     protected value : number = 0;
     

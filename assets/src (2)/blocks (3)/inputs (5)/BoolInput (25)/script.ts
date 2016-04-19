@@ -1,6 +1,6 @@
 
 /* BOOLEAN */
-class ButtonBlock extends InteractBlock{
+class ButtonBlock extends InteractibleBlock{
     
     protected static TIME : number = Sup.Game.getFPS(); // 1 second
     protected timer : number = 0;
@@ -23,7 +23,7 @@ class ButtonBlock extends InteractBlock{
     }
     
 }
-class ToggleBlock extends InteractBlock{
+class ToggleBlock extends InteractibleBlock{
     
     protected value : boolean = false;
     public awake(){

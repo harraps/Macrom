@@ -11,13 +11,13 @@ abstract class AbstractPin extends Sup.Behavior{
     
     public value : any; // type of value will change based on the type of pin
     
-    protected block : IBlock;    // the block to which the pin is attached to
+    protected block : AbstractBlock; // the block to which the pin is attached to (   not null)
     
     public awake() {
         // we activate wireframe mode
         //(<any>this.actor.modelRenderer).__inner.material.wireframe = true;
     }
-    public init( block : IBlock ){
+    public init( block : AbstractBlock ){
         this.block = block;
     }
     public update(){
@@ -26,6 +26,7 @@ abstract class AbstractPin extends Sup.Behavior{
     }
     
     public abstract connect( pin : AbstractPin );
+    public abstract destroyPin();
 }
 // define input square pins
 abstract class InPin extends AbstractPin {
@@ -34,15 +35,20 @@ abstract class InPin extends AbstractPin {
     public color_high : string = "FFFFFF";
     public color_low  : string = "000000";
     
-    protected wire      : Sup.Actor; // the wire connecting the outpin to the inpin
-    protected connected : OutPin;    // the connected outpin
+    protected outpin : OutPin;    // the connected outpin
+    protected wire   : Sup.Actor; // the wire connecting the outpin to the inpin
+    
     protected colorHigh : Sup.Color; // color to apply to the wire when value is high
     protected colorLow  : Sup.Color; // color to apply to the wire when value is low
+    
+    public get Connected() : OutPin{
+        return this.outpin;
+    }
     
     public awake() {
         super.awake();
         // we add the pin to the list
-        Game.inpins[Game.inpins.length] = this.actor;
+        Game.board.addInPin(this);
         
         // we recover the colors
         this.colorHigh = Game.getColor(this.color_high);
@@ -58,39 +64,53 @@ abstract class InPin extends AbstractPin {
     public update() {
         super.update();
         // we recover the value from the connected outPin
-        if( this.connected ){ // if not null
-            this.value = this.connected.value;
+        if( this.outpin ){ // if not null
+            this.value = this.outpin.value;
         }
     }
     
+    // connect from box to arrow
     public connect( outpin : OutPin ){
-        this.connected = outpin;
-        if( this.connected ){ // if not null
-            let pos = this.connected.actor.getPosition();
+        this.outpin = outpin;
+        if( this.outpin ){ // if not null
+            // we add the pin to the list of pins
+            this.outpin.addInPin(this);
+            // we recover the position of the pin
+            let pos = this.outpin.actor.getPosition();
             // we rotate the wire in the right direction
             this.wire.lookAt(pos);
+            // and we extend it
             let distance = this.wire.getPosition().distanceTo(pos);
             this.wire.setLocalScaleZ(distance);
         }
+    }
+    public disconnect(){
+        // we remove the pin from the list
+        if(this.outpin) this.outpin.removeInPin(this);
+        // we reset the scale of the wire close to 0
+        this.wire.setLocalScaleZ(0.01);
+        this.outpin = null;
     }
 
     public setWire( ON : boolean ){
         this.wire.modelRenderer.setColor( ON ? this.colorHigh : this.colorLow );
     }
     
-    public destroy(){
-        super.destroy();
-        let index = Game.inpins.indexOf(this.actor);
-        if(index > -1) Game.inpins.splice(index, 1);
+    public destroyPin(){
+        //this.disconnect();
+        Game.board.removeInPin(this);
     }
 }
 // define output arrow pins
 abstract class OutPin extends AbstractPin {
     
+    protected inpins : InPin[];
+    
     public awake(){
         super.awake();
+        this.inpins = [];
         // we add the pin to the list
-        Game.outpins[Game.outpins.length] = this.actor;
+        Game.board.addOutPin(this);
     }
     
     public update() {
@@ -101,15 +121,35 @@ abstract class OutPin extends AbstractPin {
         }
     }
     
-    public connect( inpin : InPin ){
+    // connect from arrow to box
+    public connect(inpin : InPin){
         // we connect the inpin to the outpin
         // and not the other way around
         inpin.connect(this);
     }
     
-    public destroy(){
-        super.destroy();
-        let index = Game.outpins.indexOf(this.actor);
-        if(index > -1) Game.outpins.splice(index, 1);
+    // disconnect only the given pin
+    public disconnect(inpin : InPin){
+        // if in pin is connected to this out pin
+        if(inpin.Connected == this) inpin.disconnect();
+    }
+    
+    // disconnect all of the pins
+    public disconnectAll(){
+        for( let inpin of this.inpins ){
+            this.disconnect(inpin);
+        }
+    }
+    
+    public addInPin(inpin : InPin){
+        Util.listAdd(this.inpins, inpin);
+    }
+    public removeInPin(inpin : InPin){
+        Util.listRemove(this.inpins, inpin);
+    }
+    
+    public destroyPin(){
+        this.disconnectAll();
+        Game.board.removeOutPin(this);
     }
 }

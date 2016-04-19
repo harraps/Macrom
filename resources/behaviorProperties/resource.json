@@ -2,7 +2,7 @@
   "behaviors": {
     "Player": {
       "scriptId": "8",
-      "line": 64,
+      "line": 0,
       "parentBehavior": null,
       "properties": [
         {
@@ -28,7 +28,7 @@
     },
     "InPin": {
       "scriptId": "16",
-      "line": 30,
+      "line": 31,
       "parentBehavior": "AbstractPin",
       "properties": [
         {
@@ -43,7 +43,7 @@
     },
     "OutPin": {
       "scriptId": "16",
-      "line": 87,
+      "line": 104,
       "parentBehavior": "AbstractPin",
       "properties": []
     },
@@ -130,7 +130,7 @@
     "NumberInputBlock": {
       "scriptId": "27",
       "line": 0,
-      "parentBehavior": "NumberBlock",
+      "parentBehavior": "InteractBlock",
       "properties": []
     },
     "Vector3DInPin": {
@@ -163,91 +163,91 @@
     },
     "BoolGate2Block": {
       "scriptId": "28",
-      "line": 11,
+      "line": 16,
       "parentBehavior": "BoolGateBlock",
       "properties": []
     },
     "NOTGate": {
       "scriptId": "28",
-      "line": 23,
+      "line": 32,
       "parentBehavior": "BoolGateBlock",
       "properties": []
     },
     "ANDGate": {
       "scriptId": "28",
-      "line": 28,
+      "line": 37,
       "parentBehavior": "BoolGate2Block",
       "properties": []
     },
     "ORGate": {
       "scriptId": "28",
-      "line": 33,
+      "line": 42,
       "parentBehavior": "BoolGate2Block",
       "properties": []
     },
     "XORGate": {
       "scriptId": "28",
-      "line": 38,
+      "line": 47,
       "parentBehavior": "BoolGate2Block",
       "properties": []
     },
     "NANDGate": {
       "scriptId": "28",
-      "line": 43,
+      "line": 52,
       "parentBehavior": "BoolGate2Block",
       "properties": []
     },
     "NORGate": {
       "scriptId": "28",
-      "line": 48,
+      "line": 57,
       "parentBehavior": "BoolGate2Block",
       "properties": []
     },
     "XNORGate": {
       "scriptId": "28",
-      "line": 53,
+      "line": 62,
       "parentBehavior": "BoolGate2Block",
       "properties": []
     },
     "NumberGateBlock": {
       "scriptId": "29",
       "line": 0,
-      "parentBehavior": "NumberBlock",
+      "parentBehavior": "AbstractBlock",
       "properties": []
     },
     "NumberGate2Block": {
       "scriptId": "29",
-      "line": 11,
+      "line": 15,
       "parentBehavior": "NumberGateBlock",
       "properties": []
     },
     "AddGate": {
       "scriptId": "29",
-      "line": 23,
+      "line": 30,
       "parentBehavior": "NumberGate2Block",
       "properties": []
     },
     "SubtractGate": {
       "scriptId": "29",
-      "line": 28,
+      "line": 35,
       "parentBehavior": "NumberGate2Block",
       "properties": []
     },
     "MultiplyGate": {
       "scriptId": "29",
-      "line": 33,
+      "line": 40,
       "parentBehavior": "NumberGate2Block",
       "properties": []
     },
     "DivideGate": {
       "scriptId": "29",
-      "line": 38,
+      "line": 45,
       "parentBehavior": "NumberGate2Block",
       "properties": []
     },
     "ModuloGate": {
       "scriptId": "29",
-      "line": 43,
+      "line": 50,
       "parentBehavior": "NumberGate2Block",
       "properties": []
     },
@@ -298,31 +298,31 @@
     "TextInputBlock": {
       "scriptId": "31",
       "line": 0,
-      "parentBehavior": "AbstractBlock",
+      "parentBehavior": "InteractBlock",
       "properties": []
     },
     "TextGateBlock": {
       "scriptId": "30",
       "line": 0,
-      "parentBehavior": "TextBlock",
+      "parentBehavior": "AbstractBlock",
       "properties": []
     },
     "TextGate2Block": {
       "scriptId": "30",
-      "line": 11,
+      "line": 15,
       "parentBehavior": "TextGateBlock",
       "properties": []
     },
     "ConcatGate": {
       "scriptId": "30",
-      "line": 23,
+      "line": 30,
       "parentBehavior": "TextGate2Block",
       "properties": []
     },
     "BoolOutput": {
       "scriptId": "32",
       "line": 0,
-      "parentBehavior": null,
+      "parentBehavior": "AbstractBlock",
       "properties": [
         {
           "name": "color_high",
@@ -348,13 +348,44 @@
     },
     "AbstractBlock": {
       "scriptId": "17",
-      "line": 7,
+      "line": 5,
       "parentBehavior": null,
       "properties": []
     },
-    "InteractBlock": {
+    "Board": {
+      "scriptId": "69",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "x",
+          "type": "number"
+        },
+        {
+          "name": "y",
+          "type": "number"
+        },
+        {
+          "name": "z",
+          "type": "number"
+        },
+        {
+          "name": "width",
+          "type": "number"
+        },
+        {
+          "name": "height",
+          "type": "number"
+        },
+        {
+          "name": "depth",
+          "type": "number"
+        }
+      ]
+    },
+    "InteractibleBlock": {
       "scriptId": "17",
-      "line": 27,
+      "line": 35,
       "parentBehavior": "AbstractBlock",
       "properties": []
     }

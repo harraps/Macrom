@@ -5,6 +5,16 @@
     "type": null,
     "children": [
       {
+        "id": "89",
+        "name": "Util",
+        "type": "script"
+      },
+      {
+        "id": "88",
+        "name": "ComplexInputManager",
+        "type": "script"
+      },
+      {
         "id": "10",
         "name": "InputManager",
         "type": "script"
@@ -15,10 +25,25 @@
         "type": "script"
       },
       {
+        "id": "69",
+        "name": "Board",
+        "type": "script"
+      },
+      {
         "id": "0",
         "name": "player",
         "type": null,
         "children": [
+          {
+            "id": "70",
+            "name": "Input",
+            "type": "script"
+          },
+          {
+            "id": "71",
+            "name": "Inventory",
+            "type": "script"
+          },
           {
             "id": "8",
             "name": "Player",
@@ -145,6 +170,11 @@
         "type": null,
         "children": [
           {
+            "id": "68",
+            "name": "board",
+            "type": "model"
+          },
+          {
             "id": "35",
             "name": "input",
             "type": "model"
@@ -270,15 +300,33 @@
             ]
           }
         ]
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "name": "Playground",
+    "type": "scene"
+  },
+  {
+    "id": "73",
+    "name": "BLOCKS",
+    "type": null,
+    "children": [
+      {
+        "id": "82",
+        "name": "CONVERTER",
+        "type": null,
+        "children": []
       },
       {
-        "id": "41",
-        "name": "blocks",
+        "id": "74",
+        "name": "BOOLEAN",
         "type": null,
         "children": [
           {
-            "id": "42",
-            "name": "bool",
+            "id": "79",
+            "name": "INPUT",
             "type": null,
             "children": [
               {
@@ -290,21 +338,120 @@
                 "id": "49",
                 "name": "Button",
                 "type": "scene"
+              }
+            ]
+          },
+          {
+            "id": "80",
+            "name": "GATE",
+            "type": null,
+            "children": [
+              {
+                "id": "63",
+                "name": "NOT",
+                "type": "scene"
               },
               {
                 "id": "56",
                 "name": "AND",
                 "type": "scene"
+              },
+              {
+                "id": "62",
+                "name": "OR",
+                "type": "scene"
+              },
+              {
+                "id": "64",
+                "name": "XOR",
+                "type": "scene"
+              },
+              {
+                "id": "65",
+                "name": "NAND",
+                "type": "scene"
+              },
+              {
+                "id": "66",
+                "name": "NOR",
+                "type": "scene"
+              },
+              {
+                "id": "67",
+                "name": "XNOR",
+                "type": "scene"
               }
             ]
+          },
+          {
+            "id": "81",
+            "name": "OUTPUT",
+            "type": null,
+            "children": [
+              {
+                "id": "61",
+                "name": "LED",
+                "type": "scene"
+              }
+            ]
+          },
+          {
+            "id": "83",
+            "name": "OTHER",
+            "type": null,
+            "children": []
           }
         ]
+      },
+      {
+        "id": "75",
+        "name": "NUMBER",
+        "type": null,
+        "children": [
+          {
+            "id": "84",
+            "name": "INPUT",
+            "type": null,
+            "children": []
+          },
+          {
+            "id": "85",
+            "name": "GATE",
+            "type": null,
+            "children": []
+          },
+          {
+            "id": "86",
+            "name": "OUTPUT",
+            "type": null,
+            "children": []
+          },
+          {
+            "id": "87",
+            "name": "OTHER",
+            "type": null,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "76",
+        "name": "TEXT",
+        "type": null,
+        "children": []
+      },
+      {
+        "id": "77",
+        "name": "COLOR",
+        "type": null,
+        "children": []
+      },
+      {
+        "id": "78",
+        "name": "VECTOR",
+        "type": null,
+        "children": []
       }
     ]
-  },
-  {
-    "id": "9",
-    "name": "Playground",
-    "type": "scene"
   }
 ]

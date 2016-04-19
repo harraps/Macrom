@@ -1,4 +1,4 @@
-class TextInputBlock extends AbstractBlock implements IInteract {
+class TextInputBlock extends InteractibleBlock {
     
     protected value : string = "";
     
@@ -13,4 +13,4 @@ class TextInputBlock extends AbstractBlock implements IInteract {
         return this.value;
     }
 }
-Sup.registerBehavior(NumberInputBlock);
+Sup.registerBehavior(TextInputBlock);

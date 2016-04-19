@@ -7,6 +7,10 @@ abstract class NumberGateBlock extends AbstractBlock {
         this.inA = this.actor.getChild("A").getBehavior(NumberInPin);
         this.inA.init(this);
     }
+    public onDestroy(){
+        if(this.inA) this.inA.destroyPin();
+        super.onDestroy();
+    }
 }
 
 abstract class NumberGate2Block extends NumberGateBlock{
@@ -18,7 +22,10 @@ abstract class NumberGate2Block extends NumberGateBlock{
         this.inB = this.actor.getChild("B").getBehavior(NumberInPin);
         this.inB.init(this);
     }
-    
+    public onDestroy(){
+        if(this.inB) this.inB.destroyPin();
+        super.onDestroy();
+    }
 }
 
 class AddGate extends NumberGate2Block{

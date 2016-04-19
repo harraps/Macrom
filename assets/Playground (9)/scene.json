@@ -2,14 +2,88 @@
   "formatVersion": 1,
   "nodes": [
     {
+      "id": "8",
+      "name": "BOARD",
+      "children": [],
+      "components": [
+        {
+          "type": "ModelRenderer",
+          "config": {
+            "modelAssetId": "68",
+            "animationId": null,
+            "castShadow": false,
+            "receiveShadow": false,
+            "color": "444444",
+            "overrideOpacity": false,
+            "opacity": null,
+            "materialType": "basic",
+            "shaderAssetId": null
+          },
+          "id": "0"
+        },
+        {
+          "type": "Behavior",
+          "config": {
+            "behaviorName": "Board",
+            "propertyValues": {
+              "x": {
+                "type": "number",
+                "value": -16
+              },
+              "y": {
+                "type": "number",
+                "value": 0
+              },
+              "z": {
+                "type": "number",
+                "value": -16
+              },
+              "width": {
+                "type": "number",
+                "value": 32
+              },
+              "height": {
+                "type": "number",
+                "value": 32
+              },
+              "depth": {
+                "type": "number",
+                "value": 32
+              }
+            }
+          },
+          "id": "1"
+        }
+      ],
+      "position": {
+        "x": -0.5,
+        "y": -0.5,
+        "z": -0.5
+      },
+      "orientation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "scale": {
+        "x": 4,
+        "y": 4,
+        "z": 4
+      },
+      "visible": true,
+      "layer": 0,
+      "prefab": null
+    },
+    {
       "id": "0",
       "name": "PLAYER",
       "children": [],
       "components": [],
       "position": {
-        "x": -2.9297451972961426,
-        "y": -1.4038368463516235,
-        "z": 7.8960490226745605
+        "x": 0,
+        "y": 5,
+        "z": 27.009157180786133
       },
       "orientation": {
         "x": 0,
@@ -63,7 +137,7 @@
       "position": {
         "x": 0,
         "y": 0,
-        "z": 7.896049499511719
+        "z": 4
       },
       "orientation": {
         "x": 0,
@@ -88,9 +162,9 @@
       "children": [],
       "components": [],
       "position": {
-        "x": -2.7804001919607675,
-        "y": -1.1321294803028144,
-        "z": 4.95365979932493
+        "x": 3,
+        "y": 0,
+        "z": 4
       },
       "orientation": {
         "x": 0,
@@ -115,9 +189,9 @@
       "children": [],
       "components": [],
       "position": {
-        "x": -3.6108377588448217,
-        "y": -1.048033603342457,
-        "z": 7.51273018083462
+        "x": -3,
+        "y": 0,
+        "z": 7
       },
       "orientation": {
         "x": 0,
@@ -134,6 +208,112 @@
       "layer": 0,
       "prefab": {
         "sceneAssetId": "49"
+      }
+    },
+    {
+      "id": "5",
+      "name": "led",
+      "children": [],
+      "components": [],
+      "position": {
+        "x": -2,
+        "y": 0,
+        "z": 2
+      },
+      "orientation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "visible": true,
+      "layer": 0,
+      "prefab": {
+        "sceneAssetId": "61"
+      }
+    },
+    {
+      "id": "7",
+      "name": "nor",
+      "children": [],
+      "components": [],
+      "position": {
+        "x": -2,
+        "y": 0,
+        "z": 5
+      },
+      "orientation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "visible": true,
+      "layer": 0,
+      "prefab": {
+        "sceneAssetId": "66"
+      }
+    },
+    {
+      "id": "9",
+      "name": "Actor",
+      "children": [],
+      "components": [],
+      "position": {
+        "x": -16,
+        "y": 0,
+        "z": -16
+      },
+      "orientation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "scale": {
+        "x": 4,
+        "y": 4,
+        "z": 4
+      },
+      "visible": true,
+      "layer": 0,
+      "prefab": null
+    },
+    {
+      "id": "6",
+      "name": "or",
+      "children": [],
+      "components": [],
+      "position": {
+        "x": -16,
+        "y": 0,
+        "z": 15
+      },
+      "orientation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      },
+      "scale": {
+        "x": 1,
+        "y": 1,
+        "z": 1
+      },
+      "visible": true,
+      "layer": 0,
+      "prefab": {
+        "sceneAssetId": "62"
       }
     }
   ]
