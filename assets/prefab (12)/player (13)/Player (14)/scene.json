@@ -50,7 +50,8 @@
                 },
                 "depth": 0,
                 "nearClippingPlane": 0.1,
-                "farClippingPlane": 1000
+                "farClippingPlane": 1000,
+                "formatVersion": 1
               },
               "id": "0"
             }

@@ -21,7 +21,8 @@
                 "overrideOpacity": false,
                 "opacity": null,
                 "materialType": "basic",
-                "shaderAssetId": null
+                "shaderAssetId": null,
+                "formatVersion": 1
               },
               "id": "0"
             }
@@ -76,7 +77,8 @@
             "overrideOpacity": false,
             "opacity": null,
             "materialType": "basic",
-            "shaderAssetId": null
+            "shaderAssetId": null,
+            "formatVersion": 1
           },
           "id": "1"
         }

@@ -99,7 +99,10 @@
                 "alignment": "center",
                 "size": 32,
                 "color": null,
-                "verticalAlignment": "center"
+                "verticalAlignment": "center",
+                "formatVersion": 2,
+                "overrideOpacity": false,
+                "opacity": null
               },
               "id": "0"
             }
@@ -145,7 +148,8 @@
             "overrideOpacity": false,
             "opacity": null,
             "materialType": "basic",
-            "shaderAssetId": null
+            "shaderAssetId": null,
+            "formatVersion": 1
           },
           "id": "1"
         }
