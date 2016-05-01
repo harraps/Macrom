@@ -11,9 +11,11 @@ class Player extends Sup.Behavior {
     // interactions
     protected currentInPin : InPin;
     protected buildMode    : boolean;
+    protected invenMode    : boolean;
     
-    public sensitivity : number = 0.5;
-    public speed       : number = 0.3;
+    public sensitivity_x : number = 0.6;
+    public sensitivity_y : number = 0.5;
+    public speed : number = 0.3;
     
     private ray : Sup.Math.Ray;
     
@@ -25,47 +27,55 @@ class Player extends Sup.Behavior {
         
         // we start in build mode
         this.buildMode = true;
+        this.invenMode = false;
         this.ray = new Sup.Math.Ray();
         
         this.view = this.actor.getChild("VIEW");
         this.grab = this.actor.getChild("GRAB");
         Game.player = this;
         
-        this.inven.setPrefab(0,{name:"Switch",path:"BLOCKS/BOOLEAN/INPUT/Switch",subs:null});
-        this.inven.setPrefab(1,{name:"Button",path:"BLOCKS/BOOLEAN/INPUT/Button",subs:null});
-        this.inven.setPrefab(2,{name:"NOT"   ,path:"BLOCKS/BOOLEAN/GATE/NOT"    ,subs:null});
-        this.inven.setPrefab(3,{name:"AND"   ,path:"BLOCKS/BOOLEAN/GATE/AND"    ,subs:null});
-        this.inven.setPrefab(4,{name:"OR"    ,path:"BLOCKS/BOOLEAN/GATE/OR"     ,subs:null});
-        this.inven.setPrefab(5,{name:"XOR"   ,path:"BLOCKS/BOOLEAN/GATE/XOR"    ,subs:null});
-        this.inven.setPrefab(6,{name:"NAND"  ,path:"BLOCKS/BOOLEAN/GATE/NAND"   ,subs:null});
-        this.inven.setPrefab(7,{name:"NOR"   ,path:"BLOCKS/BOOLEAN/GATE/NOR"    ,subs:null});
-        this.inven.setPrefab(8,{name:"XNOR"  ,path:"BLOCKS/BOOLEAN/GATE/XNOR"   ,subs:null});
-        this.inven.setPrefab(9,{name:"LED"   ,path:"BLOCKS/BOOLEAN/OUTPUT/LED"  ,subs:null});
+        this.inven.PaletteVisible   = true;
+        this.inven.InventoryVisible = false;
     }
     public update(){
         // Mouse button :
         // 0 = Left
         // 1 = Middle
         // 2 = Right
-        this.updateLook(); // we rotate the player
-        this.updateMove(); // we move the player
-        this.updatePointed();
+        if(!this.invenMode){ // if we're not in inventory mode
+            this.updateLook();    // we rotate the player
+            this.updatePointed(); // update the selected block type
+        }
+        this.updateMove();   // we move the player
+        this.inven.update(); // update the inventory display
         
         // if the player want to switch of mode, we toggle the value
-        if(this.input.getSwitch()) this.buildMode = !this.buildMode;
+        if(this.input.getInventory()){
+            this.invenMode = ! this.invenMode;
+            this.inven.InventoryVisible = this.invenMode;
+            // if we are in inventory mode, we want to display the palette
+            if(this.invenMode)       this.inven.PaletteVisible = true;
+            else if(!this.buildMode) this.inven.PaletteVisible = false;
+            // if we are in menumode, we want to be able to select elements in the menu
+            if(this.invenMode) Sup.Input.unlockMouse();
+            else               Sup.Input.  lockMouse();
+        }
+        if(this.input.getSwitch() && !this.invenMode){
+            this.buildMode = !this.buildMode;
+            this.inven.PaletteVisible = this.buildMode;
+        }
         
         this.ray.setFromCamera(this.view.camera, {x:0, y:0});
-        if( this.buildMode ){
-            this.updateBuild();
-        }else{
-            this.updateInteract(); // we interact with the world
-        }
+        
+        if(this.invenMode) this.inven.updateInventory();
+        else if(this.buildMode) this.updateBuild();
+        else this.updateInteract(); // we interact with the world
     }
     private updateLook(){
         // we recover input
         let look = this.input.getLook();
-        look.x *= -this.sensitivity;
-        look.y *=  this.sensitivity;
+        look.x *= -this.sensitivity_x;
+        look.y *=  this.sensitivity_y;
         // we rotate horizontally
         this.actor.rotateLocalEulerY(look.x);
         this.angle.x += look.x;
@@ -73,12 +83,12 @@ class Player extends Sup.Behavior {
         // we rotate vertically
         this.view.rotateLocalEulerX(look.y);
         this.angle.y += look.y;
-        if( this.angle.y > Util.halfPI ){
-            this.view.setLocalEulerX(Util.halfPI);
-            this.angle.y = Util.halfPI;
-        }else if( this.angle.y < -Util.halfPI ){
-            this.view.setLocalEulerX(Util.halfPI);
-            this.angle.y = -Util.halfPI;
+        if( this.angle.y > Util.hPI ){
+            this.view.setLocalEulerX(Util.hPI);
+            this.angle.y = Util.hPI;
+        }else if( this.angle.y < -Util.hPI ){
+            this.view.setLocalEulerX(Util.hPI);
+            this.angle.y = -Util.hPI;
         }
     }
     private updateMove(){

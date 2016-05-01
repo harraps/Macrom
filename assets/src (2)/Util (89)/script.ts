@@ -1,6 +1,8 @@
 let Util = {
-    TAU     : Math.PI*2,
-    halfPI  : Math.PI*0.5,
+    TAU : Math.PI*2,
+    hPI : Math.PI*0.5,
+    qPI : Math.PI*0.25,
+    
     listAdd : function(list : any[], element : any){
         list[list.length] = element;
     },
@@ -22,9 +24,9 @@ let Util = {
         // if sin is greater, the block will be oriented on the Z-axis
         if( Math.abs(sin) > Math.abs(cos) ){ 
             // if sin is positive, the block is oriented toward Z+
-            if(sin > 0) angle = Util.halfPI;
+            if(sin > 0) angle = Util.hPI;
             // Z- otherwise
-            else angle = -Util.halfPI;
+            else angle = -Util.hPI;
         }else{ // cos is greater, the block will be oriented on the X-axis
             // if cos is positive, the block is oriented toward X+
             if(cos > 0) angle = 0;

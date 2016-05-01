@@ -117,7 +117,7 @@ abstract class OutPin extends AbstractPin {
         super.update();
         // we recover the value from the parent block
         if( this.block ){ // if not null
-            this.value = this.block.getValue();
+            this.value = this.block.getValue(this);
         }
     }
     

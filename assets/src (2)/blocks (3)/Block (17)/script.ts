@@ -1,5 +1,5 @@
 interface IBlock {
-    getValue() : any;
+    getValue( pin : OutPin ) : any;
 }
 
 // the most basic block we can create
@@ -23,7 +23,8 @@ abstract class AbstractBlock extends Sup.Behavior implements IBlock{
         // if a label is set, we rotate the label toward the player
         if(this.label) this.label.setOrientation(Game.player.view.getOrientation());
     }
-    public abstract getValue() : any;
+    // the value returned by the block may vary based on the outpin calling it
+    public abstract getValue(pin : OutPin) : any;
     
     public onDestroy(){
         Game.board.removeBlock(this);

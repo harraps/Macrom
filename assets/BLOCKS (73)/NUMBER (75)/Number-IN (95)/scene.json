@@ -29,18 +29,35 @@
           "visible": true,
           "layer": 0,
           "prefab": {
-            "sceneAssetId": "48"
+            "sceneAssetId": "53"
           }
         },
         {
           "id": "2",
-          "name": "A",
+          "name": "INTERACT",
           "children": [],
-          "components": [],
+          "components": [
+            {
+              "type": "ModelRenderer",
+              "config": {
+                "formatVersion": 1,
+                "modelAssetId": "40",
+                "animationId": null,
+                "castShadow": false,
+                "receiveShadow": false,
+                "color": "63708d",
+                "overrideOpacity": false,
+                "opacity": null,
+                "materialType": "basic",
+                "shaderAssetId": null
+              },
+              "id": "0"
+            }
+          ],
           "position": {
-            "x": -0.3,
-            "y": -0.2,
-            "z": 0.4
+            "x": 0,
+            "y": -0.20458273589611053,
+            "z": 0
           },
           "orientation": {
             "x": 0,
@@ -49,58 +66,29 @@
             "w": 1
           },
           "scale": {
-            "x": 1,
-            "y": 1,
-            "z": 1
+            "x": 1.5,
+            "y": 1.5,
+            "z": 1.5
           },
           "visible": true,
           "layer": 0,
-          "prefab": {
-            "sceneAssetId": "47"
-          }
+          "prefab": null
         },
         {
           "id": "3",
-          "name": "B",
-          "children": [],
-          "components": [],
-          "position": {
-            "x": 0.3,
-            "y": -0.2,
-            "z": 0.4
-          },
-          "orientation": {
-            "x": 0,
-            "y": 0,
-            "z": 0,
-            "w": 1
-          },
-          "scale": {
-            "x": 1,
-            "y": 1,
-            "z": 1
-          },
-          "visible": true,
-          "layer": 0,
-          "prefab": {
-            "sceneAssetId": "47"
-          }
-        },
-        {
-          "id": "4",
           "name": "LABEL",
           "children": [],
           "components": [
             {
               "type": "TextRenderer",
               "config": {
-                "fontAssetId": "57",
-                "text": "NAND",
-                "alignment": "center",
-                "size": 32,
-                "color": null,
-                "verticalAlignment": "center",
                 "formatVersion": 2,
+                "fontAssetId": "57",
+                "text": "0",
+                "alignment": "center",
+                "verticalAlignment": "center",
+                "size": null,
+                "color": null,
                 "overrideOpacity": false,
                 "opacity": null
               },
@@ -109,7 +97,7 @@
           ],
           "position": {
             "x": 0,
-            "y": -0.2,
+            "y": 0.15,
             "z": 0
           },
           "orientation": {
@@ -132,7 +120,7 @@
         {
           "type": "Behavior",
           "config": {
-            "behaviorName": "NANDGate",
+            "behaviorName": "NumberInputBlock",
             "propertyValues": {}
           },
           "id": "0"
@@ -140,6 +128,7 @@
         {
           "type": "ModelRenderer",
           "config": {
+            "formatVersion": 1,
             "modelAssetId": "37",
             "animationId": null,
             "castShadow": false,
@@ -148,10 +137,9 @@
             "overrideOpacity": false,
             "opacity": null,
             "materialType": "basic",
-            "shaderAssetId": null,
-            "formatVersion": 1
+            "shaderAssetId": null
           },
-          "id": "1"
+          "id": "3"
         }
       ],
       "position": {

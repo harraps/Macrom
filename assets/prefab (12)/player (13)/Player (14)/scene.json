@@ -82,7 +82,12 @@
           "type": "Behavior",
           "config": {
             "behaviorName": "Player",
-            "propertyValues": {}
+            "propertyValues": {
+              "sensitivity": {
+                "type": "number",
+                "value": 0.7
+              }
+            }
           },
           "id": "0"
         }

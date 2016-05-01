@@ -6,7 +6,11 @@
       "parentBehavior": null,
       "properties": [
         {
-          "name": "sensitivity",
+          "name": "sensitivity_x",
+          "type": "number"
+        },
+        {
+          "name": "sensitivity_y",
           "type": "number"
         },
         {
@@ -118,20 +122,25 @@
     "ButtonBlock": {
       "scriptId": "25",
       "line": 2,
-      "parentBehavior": "InteractBlock",
+      "parentBehavior": "InteractibleBlock",
       "properties": []
     },
     "ToggleBlock": {
       "scriptId": "25",
       "line": 25,
-      "parentBehavior": "InteractBlock",
+      "parentBehavior": "InteractibleBlock",
       "properties": []
     },
     "NumberInputBlock": {
       "scriptId": "27",
       "line": 0,
-      "parentBehavior": "InteractBlock",
-      "properties": []
+      "parentBehavior": "InteractibleBlock",
+      "properties": [
+        {
+          "name": "value",
+          "type": "number"
+        }
+      ]
     },
     "Vector3DInPin": {
       "scriptId": "23",
@@ -158,97 +167,25 @@
     "BoolGateBlock": {
       "scriptId": "28",
       "line": 0,
-      "parentBehavior": "AbstractBlock",
+      "parentBehavior": "InteractibleBlock",
       "properties": []
     },
     "BoolGate2Block": {
       "scriptId": "28",
-      "line": 16,
+      "line": 18,
       "parentBehavior": "BoolGateBlock",
-      "properties": []
-    },
-    "NOTGate": {
-      "scriptId": "28",
-      "line": 32,
-      "parentBehavior": "BoolGateBlock",
-      "properties": []
-    },
-    "ANDGate": {
-      "scriptId": "28",
-      "line": 37,
-      "parentBehavior": "BoolGate2Block",
-      "properties": []
-    },
-    "ORGate": {
-      "scriptId": "28",
-      "line": 42,
-      "parentBehavior": "BoolGate2Block",
-      "properties": []
-    },
-    "XORGate": {
-      "scriptId": "28",
-      "line": 47,
-      "parentBehavior": "BoolGate2Block",
-      "properties": []
-    },
-    "NANDGate": {
-      "scriptId": "28",
-      "line": 52,
-      "parentBehavior": "BoolGate2Block",
-      "properties": []
-    },
-    "NORGate": {
-      "scriptId": "28",
-      "line": 57,
-      "parentBehavior": "BoolGate2Block",
-      "properties": []
-    },
-    "XNORGate": {
-      "scriptId": "28",
-      "line": 62,
-      "parentBehavior": "BoolGate2Block",
       "properties": []
     },
     "NumberGateBlock": {
       "scriptId": "29",
       "line": 0,
-      "parentBehavior": "AbstractBlock",
+      "parentBehavior": "InteractibleBlock",
       "properties": []
     },
     "NumberGate2Block": {
       "scriptId": "29",
-      "line": 15,
+      "line": 18,
       "parentBehavior": "NumberGateBlock",
-      "properties": []
-    },
-    "AddGate": {
-      "scriptId": "29",
-      "line": 30,
-      "parentBehavior": "NumberGate2Block",
-      "properties": []
-    },
-    "SubtractGate": {
-      "scriptId": "29",
-      "line": 35,
-      "parentBehavior": "NumberGate2Block",
-      "properties": []
-    },
-    "MultiplyGate": {
-      "scriptId": "29",
-      "line": 40,
-      "parentBehavior": "NumberGate2Block",
-      "properties": []
-    },
-    "DivideGate": {
-      "scriptId": "29",
-      "line": 45,
-      "parentBehavior": "NumberGate2Block",
-      "properties": []
-    },
-    "ModuloGate": {
-      "scriptId": "29",
-      "line": 50,
-      "parentBehavior": "NumberGate2Block",
       "properties": []
     },
     "NumberInPin": {
@@ -385,8 +322,220 @@
     },
     "InteractibleBlock": {
       "scriptId": "17",
-      "line": 35,
+      "line": 36,
       "parentBehavior": "AbstractBlock",
+      "properties": []
+    },
+    "RSnorLatch": {
+      "scriptId": "28",
+      "line": 144,
+      "parentBehavior": "AbstractBlock",
+      "properties": []
+    },
+    "ToggleLatch": {
+      "scriptId": "28",
+      "line": 117,
+      "parentBehavior": "BoolGateBlock",
+      "properties": []
+    },
+    "NumberOutput": {
+      "scriptId": "94",
+      "line": 0,
+      "parentBehavior": "AbstractBlock",
+      "properties": []
+    },
+    "SIN_Gate": {
+      "scriptId": "29",
+      "line": 90,
+      "parentBehavior": "NumberGateBlock",
+      "properties": []
+    },
+    "COS_Gate": {
+      "scriptId": "29",
+      "line": 95,
+      "parentBehavior": "NumberGateBlock",
+      "properties": []
+    },
+    "TAN_Gate": {
+      "scriptId": "29",
+      "line": 100,
+      "parentBehavior": "NumberGateBlock",
+      "properties": []
+    },
+    "ASIN_Gate": {
+      "scriptId": "29",
+      "line": 105,
+      "parentBehavior": "NumberGateBlock",
+      "properties": []
+    },
+    "ACOS_Gate": {
+      "scriptId": "29",
+      "line": 110,
+      "parentBehavior": "NumberGateBlock",
+      "properties": []
+    },
+    "ATAN_Gate": {
+      "scriptId": "29",
+      "line": 115,
+      "parentBehavior": "NumberGateBlock",
+      "properties": []
+    },
+    "ADD_Gate": {
+      "scriptId": "29",
+      "line": 121,
+      "parentBehavior": "NumberGate2Block",
+      "properties": []
+    },
+    "SUB_Gate": {
+      "scriptId": "29",
+      "line": 126,
+      "parentBehavior": "NumberGate2Block",
+      "properties": []
+    },
+    "MUL_Gate": {
+      "scriptId": "29",
+      "line": 131,
+      "parentBehavior": "NumberGate2Block",
+      "properties": []
+    },
+    "DIV_Gate": {
+      "scriptId": "29",
+      "line": 136,
+      "parentBehavior": "NumberGate2Block",
+      "properties": []
+    },
+    "MOD_Gate": {
+      "scriptId": "29",
+      "line": 141,
+      "parentBehavior": "NumberGate2Block",
+      "properties": []
+    },
+    "PI_Block": {
+      "scriptId": "27",
+      "line": 22,
+      "parentBehavior": "AbstractBlock",
+      "properties": []
+    },
+    "EulerBlock": {
+      "scriptId": "27",
+      "line": 27,
+      "parentBehavior": "AbstractBlock",
+      "properties": []
+    },
+    "SQRT2_Block": {
+      "scriptId": "27",
+      "line": 32,
+      "parentBehavior": "AbstractBlock",
+      "properties": []
+    },
+    "ABS_Gate": {
+      "scriptId": "29",
+      "line": 33,
+      "parentBehavior": "NumberGateBlock",
+      "properties": []
+    },
+    "RoundGate": {
+      "scriptId": "29",
+      "line": 84,
+      "parentBehavior": "NumberGateBlock",
+      "properties": []
+    },
+    "BoolGate1": {
+      "scriptId": "28",
+      "line": 34,
+      "parentBehavior": "BoolGateBlock",
+      "properties": [
+        {
+          "name": "modifier",
+          "type": "boolean"
+        }
+      ]
+    },
+    "BoolGate2": {
+      "scriptId": "28",
+      "line": 46,
+      "parentBehavior": "BoolGate2Block",
+      "properties": [
+        {
+          "name": "modifier",
+          "type": "number"
+        }
+      ]
+    },
+    "BUF_Gate": {
+      "scriptId": "28",
+      "line": 76,
+      "parentBehavior": "BoolGateBlock",
+      "properties": []
+    },
+    "NOT_Gate": {
+      "scriptId": "28",
+      "line": 81,
+      "parentBehavior": "BoolGateBlock",
+      "properties": []
+    },
+    "AND_Gate": {
+      "scriptId": "28",
+      "line": 86,
+      "parentBehavior": "BoolGate2Block",
+      "properties": []
+    },
+    "OR_Gate": {
+      "scriptId": "28",
+      "line": 91,
+      "parentBehavior": "BoolGate2Block",
+      "properties": []
+    },
+    "XOR_Gate": {
+      "scriptId": "28",
+      "line": 96,
+      "parentBehavior": "BoolGate2Block",
+      "properties": []
+    },
+    "NAND_Gate": {
+      "scriptId": "28",
+      "line": 101,
+      "parentBehavior": "BoolGate2Block",
+      "properties": []
+    },
+    "NOR_Gate": {
+      "scriptId": "28",
+      "line": 106,
+      "parentBehavior": "BoolGate2Block",
+      "properties": []
+    },
+    "XNOR_Gate": {
+      "scriptId": "28",
+      "line": 111,
+      "parentBehavior": "BoolGate2Block",
+      "properties": []
+    },
+    "RoundGate1": {
+      "scriptId": "29",
+      "line": 39,
+      "parentBehavior": "NumberGateBlock",
+      "properties": [
+        {
+          "name": "modifier",
+          "type": "number"
+        }
+      ]
+    },
+    "TrigoGate": {
+      "scriptId": "29",
+      "line": 57,
+      "parentBehavior": "NumberGateBlock",
+      "properties": [
+        {
+          "name": "modifier",
+          "type": "number"
+        }
+      ]
+    },
+    "ATAN2_Gate": {
+      "scriptId": "29",
+      "line": 78,
+      "parentBehavior": "NumberGate2Block",
       "properties": []
     }
   }

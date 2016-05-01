@@ -29,7 +29,7 @@
           "visible": true,
           "layer": 0,
           "prefab": {
-            "sceneAssetId": "48"
+            "sceneAssetId": "53"
           }
         },
         {
@@ -56,7 +56,7 @@
           "visible": true,
           "layer": 0,
           "prefab": {
-            "sceneAssetId": "47"
+            "sceneAssetId": "51"
           }
         },
         {
@@ -83,7 +83,7 @@
           "visible": true,
           "layer": 0,
           "prefab": {
-            "sceneAssetId": "47"
+            "sceneAssetId": "51"
           }
         },
         {
@@ -94,13 +94,13 @@
             {
               "type": "TextRenderer",
               "config": {
-                "fontAssetId": "57",
-                "text": "XNOR",
-                "alignment": "center",
-                "size": 32,
-                "color": null,
-                "verticalAlignment": "center",
                 "formatVersion": 2,
+                "fontAssetId": "57",
+                "text": "DIV",
+                "alignment": "center",
+                "verticalAlignment": "center",
+                "size": null,
+                "color": null,
                 "overrideOpacity": false,
                 "opacity": null
               },
@@ -109,7 +109,7 @@
           ],
           "position": {
             "x": 0,
-            "y": -0.2,
+            "y": 0,
             "z": 0
           },
           "orientation": {
@@ -132,7 +132,7 @@
         {
           "type": "Behavior",
           "config": {
-            "behaviorName": "XNORGate",
+            "behaviorName": "DIV_Gate",
             "propertyValues": {}
           },
           "id": "0"
@@ -140,6 +140,7 @@
         {
           "type": "ModelRenderer",
           "config": {
+            "formatVersion": 1,
             "modelAssetId": "37",
             "animationId": null,
             "castShadow": false,
@@ -148,8 +149,7 @@
             "overrideOpacity": false,
             "opacity": null,
             "materialType": "basic",
-            "shaderAssetId": null,
-            "formatVersion": 1
+            "shaderAssetId": null
           },
           "id": "1"
         }

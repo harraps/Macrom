@@ -95,7 +95,7 @@
               "type": "TextRenderer",
               "config": {
                 "fontAssetId": "57",
-                "text": "NOR",
+                "text": "AND",
                 "alignment": "center",
                 "size": 32,
                 "color": null,
@@ -132,7 +132,7 @@
         {
           "type": "Behavior",
           "config": {
-            "behaviorName": "NORGate",
+            "behaviorName": "AND_Gate",
             "propertyValues": {}
           },
           "id": "0"

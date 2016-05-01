@@ -29,78 +29,24 @@
           "visible": true,
           "layer": 0,
           "prefab": {
-            "sceneAssetId": "48"
-          }
-        },
-        {
-          "id": "2",
-          "name": "A",
-          "children": [],
-          "components": [],
-          "position": {
-            "x": -0.3,
-            "y": -0.2,
-            "z": 0.4
-          },
-          "orientation": {
-            "x": 0,
-            "y": 0,
-            "z": 0,
-            "w": 1
-          },
-          "scale": {
-            "x": 1,
-            "y": 1,
-            "z": 1
-          },
-          "visible": true,
-          "layer": 0,
-          "prefab": {
-            "sceneAssetId": "47"
+            "sceneAssetId": "53"
           }
         },
         {
           "id": "3",
-          "name": "B",
-          "children": [],
-          "components": [],
-          "position": {
-            "x": 0.3,
-            "y": -0.2,
-            "z": 0.4
-          },
-          "orientation": {
-            "x": 0,
-            "y": 0,
-            "z": 0,
-            "w": 1
-          },
-          "scale": {
-            "x": 1,
-            "y": 1,
-            "z": 1
-          },
-          "visible": true,
-          "layer": 0,
-          "prefab": {
-            "sceneAssetId": "47"
-          }
-        },
-        {
-          "id": "4",
           "name": "LABEL",
           "children": [],
           "components": [
             {
               "type": "TextRenderer",
               "config": {
-                "fontAssetId": "57",
-                "text": "OR",
-                "alignment": "center",
-                "size": 32,
-                "color": null,
-                "verticalAlignment": "center",
                 "formatVersion": 2,
+                "fontAssetId": "57",
+                "text": "PI",
+                "alignment": "center",
+                "verticalAlignment": "center",
+                "size": null,
+                "color": null,
                 "overrideOpacity": false,
                 "opacity": null
               },
@@ -109,7 +55,7 @@
           ],
           "position": {
             "x": 0,
-            "y": -0.2,
+            "y": 0.3,
             "z": 0
           },
           "orientation": {
@@ -132,15 +78,21 @@
         {
           "type": "Behavior",
           "config": {
-            "behaviorName": "ORGate",
-            "propertyValues": {}
+            "behaviorName": "PI_Block",
+            "propertyValues": {
+              "value": {
+                "type": "number",
+                "value": 1
+              }
+            }
           },
           "id": "0"
         },
         {
           "type": "ModelRenderer",
           "config": {
-            "modelAssetId": "37",
+            "formatVersion": 1,
+            "modelAssetId": "38",
             "animationId": null,
             "castShadow": false,
             "receiveShadow": false,
@@ -148,10 +100,9 @@
             "overrideOpacity": false,
             "opacity": null,
             "materialType": "basic",
-            "shaderAssetId": null,
-            "formatVersion": 1
+            "shaderAssetId": null
           },
-          "id": "1"
+          "id": "3"
         }
       ],
       "position": {

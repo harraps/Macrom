@@ -12,7 +12,9 @@ abstract class Game {
     public static start(){
         Game.input  = new InputManager();
         Game.colors = []; // contains the color we have defined to avoid duplications
-        Game.colors["black"] = new Sup.Color(0); // we add the color black to the array 
+        Game.colors["black" ] = new Sup.Color(0x000000); // we add the color black to the array
+        Game.colors["white" ] = new Sup.Color(0xFFFFFF);
+        Game.colors["yellow"] = new Sup.Color(0xFFFF00);
     }
     
     public static getColor( colorDef : string ) : Sup.Color{

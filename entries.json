@@ -48,6 +48,11 @@
             "id": "8",
             "name": "Player",
             "type": "script"
+          },
+          {
+            "id": "96",
+            "name": "HUD",
+            "type": "script"
           }
         ]
       },
@@ -151,6 +156,11 @@
               {
                 "id": "32",
                 "name": "BoolOutput",
+                "type": "script"
+              },
+              {
+                "id": "94",
+                "name": "NumberOutput",
                 "type": "script"
               }
             ]
@@ -314,92 +324,84 @@
     "type": null,
     "children": [
       {
-        "id": "82",
-        "name": "CONVERTER",
-        "type": null,
-        "children": []
-      },
-      {
         "id": "74",
         "name": "BOOLEAN",
         "type": null,
         "children": [
           {
-            "id": "79",
-            "name": "INPUT",
-            "type": null,
-            "children": [
-              {
-                "id": "43",
-                "name": "Switch",
-                "type": "scene"
-              },
-              {
-                "id": "49",
-                "name": "Button",
-                "type": "scene"
-              }
-            ]
+            "id": "43",
+            "name": "Switch",
+            "type": "scene"
           },
           {
-            "id": "80",
-            "name": "GATE",
-            "type": null,
-            "children": [
-              {
-                "id": "63",
-                "name": "NOT",
-                "type": "scene"
-              },
-              {
-                "id": "56",
-                "name": "AND",
-                "type": "scene"
-              },
-              {
-                "id": "62",
-                "name": "OR",
-                "type": "scene"
-              },
-              {
-                "id": "64",
-                "name": "XOR",
-                "type": "scene"
-              },
-              {
-                "id": "65",
-                "name": "NAND",
-                "type": "scene"
-              },
-              {
-                "id": "66",
-                "name": "NOR",
-                "type": "scene"
-              },
-              {
-                "id": "67",
-                "name": "XNOR",
-                "type": "scene"
-              }
-            ]
+            "id": "49",
+            "name": "Button",
+            "type": "scene"
           },
           {
-            "id": "81",
-            "name": "OUTPUT",
-            "type": null,
-            "children": [
-              {
-                "id": "61",
-                "name": "LED",
-                "type": "scene"
-              }
-            ]
+            "id": "91",
+            "name": "BUF",
+            "type": "scene"
           },
           {
-            "id": "83",
-            "name": "OTHER",
-            "type": null,
-            "children": []
+            "id": "104",
+            "name": "BoolGate1",
+            "type": "scene"
+          },
+          {
+            "id": "105",
+            "name": "BoolGate2",
+            "type": "scene"
+          },
+          {
+            "id": "63",
+            "name": "NOT",
+            "type": "scene"
+          },
+          {
+            "id": "56",
+            "name": "AND",
+            "type": "scene"
+          },
+          {
+            "id": "62",
+            "name": "OR",
+            "type": "scene"
+          },
+          {
+            "id": "64",
+            "name": "XOR",
+            "type": "scene"
+          },
+          {
+            "id": "65",
+            "name": "NAND",
+            "type": "scene"
+          },
+          {
+            "id": "66",
+            "name": "NOR",
+            "type": "scene"
+          },
+          {
+            "id": "67",
+            "name": "XNOR",
+            "type": "scene"
+          },
+          {
+            "id": "61",
+            "name": "LED",
+            "type": "scene"
+          },
+          {
+            "id": "92",
+            "name": "Toggle",
+            "type": "scene"
+          },
+          {
+            "id": "93",
+            "name": "RS-NOR",
+            "type": "scene"
           }
         ]
       },
@@ -409,28 +411,44 @@
         "type": null,
         "children": [
           {
-            "id": "84",
-            "name": "INPUT",
-            "type": null,
-            "children": []
+            "id": "95",
+            "name": "Number-IN",
+            "type": "scene"
           },
           {
-            "id": "85",
-            "name": "GATE",
-            "type": null,
-            "children": []
+            "id": "103",
+            "name": "PI",
+            "type": "scene"
           },
           {
-            "id": "86",
-            "name": "OUTPUT",
-            "type": null,
-            "children": []
+            "id": "97",
+            "name": "ADD",
+            "type": "scene"
           },
           {
-            "id": "87",
-            "name": "OTHER",
-            "type": null,
-            "children": []
+            "id": "98",
+            "name": "SUB",
+            "type": "scene"
+          },
+          {
+            "id": "99",
+            "name": "MUL",
+            "type": "scene"
+          },
+          {
+            "id": "100",
+            "name": "DIV",
+            "type": "scene"
+          },
+          {
+            "id": "101",
+            "name": "MOD",
+            "type": "scene"
+          },
+          {
+            "id": "102",
+            "name": "Number-OUT",
+            "type": "scene"
           }
         ]
       },
@@ -449,6 +467,12 @@
       {
         "id": "78",
         "name": "VECTOR",
+        "type": null,
+        "children": []
+      },
+      {
+        "id": "82",
+        "name": "CONVERTER",
         "type": null,
         "children": []
       }

@@ -35,15 +35,19 @@ class Board extends Sup.Behavior {
     
     /* ADD */
     public addInPin(inpin : InPin){
+        if(!inpin) return; // if null we don't add the element to the list
         Util.listAdd(this.inpins, inpin.actor);
     }
     public addOutPin(outpin : OutPin){
+        if(!outpin) return; // if null we don't add the element to the list
         Util.listAdd(this.outpins, outpin.actor);
     }
     public addBlock(block : AbstractBlock){
+        if(!block) return; // if null we don't add the element to the list
         Util.listAdd(this.blocks, block.actor);
     }
     public addInteractible(interactible : InteractibleBlock){
+        if(!interactible) return; // if null we don't add the element to the list
         Util.listAdd(this.interactibles, interactible.interactible);
     }
     

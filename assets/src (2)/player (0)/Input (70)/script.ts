@@ -27,8 +27,8 @@ class KeyboardInput implements IInput {
     public getCycle() : number{
         let cycle = 0;
         // we recover the movement of the mouse wheel
-        if(Sup.Input.isMouseButtonDown(5)) ++cycle;
-        if(Sup.Input.isMouseButtonDown(6)) --cycle;
+        if(Sup.Input.isMouseButtonDown(5)) --cycle;
+        if(Sup.Input.isMouseButtonDown(6)) ++cycle;
         return cycle;
     }
     public getNumerical() : number{

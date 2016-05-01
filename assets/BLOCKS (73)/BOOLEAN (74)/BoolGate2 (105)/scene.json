@@ -95,7 +95,7 @@
               "type": "TextRenderer",
               "config": {
                 "fontAssetId": "57",
-                "text": "XOR",
+                "text": "AND",
                 "alignment": "center",
                 "size": 32,
                 "color": null,
@@ -126,13 +126,55 @@
           "visible": true,
           "layer": 0,
           "prefab": null
+        },
+        {
+          "id": "5",
+          "name": "INTERACT",
+          "children": [],
+          "components": [
+            {
+              "type": "ModelRenderer",
+              "config": {
+                "formatVersion": 1,
+                "modelAssetId": "40",
+                "animationId": null,
+                "castShadow": false,
+                "receiveShadow": false,
+                "color": "a26a6a",
+                "overrideOpacity": false,
+                "opacity": null,
+                "materialType": "basic",
+                "shaderAssetId": null
+              },
+              "id": "0"
+            }
+          ],
+          "position": {
+            "x": 0,
+            "y": -0.35,
+            "z": 0
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "scale": {
+            "x": 1.5,
+            "y": 0.5,
+            "z": 1.5
+          },
+          "visible": true,
+          "layer": 0,
+          "prefab": null
         }
       ],
       "components": [
         {
           "type": "Behavior",
           "config": {
-            "behaviorName": "XORGate",
+            "behaviorName": "BoolGate2",
             "propertyValues": {}
           },
           "id": "0"

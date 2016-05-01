@@ -110,3 +110,41 @@ class ComplexInputManager {
         
     }
 }
+
+/*
+    // we define the block available to use
+    public static BLOCKS : IPath;
+    
+    public static MAX : number  = 10;
+    
+    public static initBLOCKS() {
+        // we recover the hierachy of blocks defined in the "BLOCKS" directory
+        Inventory.BLOCKS = Inventory.generateIPath("BLOCKS", null);
+        //Sup.log(Inventory.BLOCKS);
+    }
+    private static generateIPath( path : string, parent : IPath ) : IPath{
+        // we recover the asset at the given path
+        let folder : any = Sup.get(path);
+        // if the asset is not a folder or a scene, it's of no use
+        if(folder.type != "folder" && folder.type != "scene") return null;
+        
+        let subpaths = null;
+        // if the asset is of type folder, there is other assets inside
+        if(folder.type == "folder"){
+            // we want to store sub paths
+            subpaths = [];
+            for( let child of folder.children ){
+                // we recover the sub asset
+                let sub = Inventory.generateIPath(path+"/"+child, parent);
+                // if sub is not null, we add it to the list
+                if(sub) subpaths[subpaths.length] = sub;
+            }
+        }
+        return {
+            parent : parent,
+            name   : folder.name,
+            path   : path,
+            subs   : subpaths
+        };
+    }
+*/

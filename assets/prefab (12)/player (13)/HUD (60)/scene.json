@@ -32,7 +32,7 @@
           "position": {
             "x": 0,
             "y": 0,
-            "z": -1
+            "z": -2
           },
           "orientation": {
             "x": 0,
@@ -43,7 +43,57 @@
           "scale": {
             "x": 0.1,
             "y": 0.1,
-            "z": 0.1
+            "z": 1
+          },
+          "visible": true,
+          "layer": 0,
+          "prefab": null
+        },
+        {
+          "id": "3",
+          "name": "PALETTE",
+          "children": [],
+          "components": [],
+          "position": {
+            "x": -0.8,
+            "y": 0,
+            "z": -1.5
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "scale": {
+            "x": 0.2,
+            "y": 0.2,
+            "z": 1
+          },
+          "visible": true,
+          "layer": 0,
+          "prefab": null
+        },
+        {
+          "id": "5",
+          "name": "CATEGORIES",
+          "children": [],
+          "components": [],
+          "position": {
+            "x": 0.8,
+            "y": 0,
+            "z": -1.6
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "scale": {
+            "x": 0.2,
+            "y": 0.2,
+            "z": 1
           },
           "visible": true,
           "layer": 0,

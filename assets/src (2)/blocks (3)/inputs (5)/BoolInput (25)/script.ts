@@ -38,9 +38,7 @@ class ToggleBlock extends InteractibleBlock{
         return this.value;
     }
     private anim(){
-        let angle = 0.25*Math.PI;
-        if( this.value ) angle = -angle;
-        this.interactible.setLocalEulerX(angle);
+        this.interactible.setLocalEulerX( this.value ? Util.qPI : -Util.qPI );
     }
 }
 
