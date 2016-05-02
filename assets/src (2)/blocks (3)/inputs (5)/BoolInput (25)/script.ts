@@ -1,29 +1,27 @@
-
 /* BOOLEAN */
-class ButtonBlock extends InteractibleBlock{
+class ButtonBlock extends AbstractBlock{
     
     protected static TIME : number = Sup.Game.getFPS(); // 1 second
     protected timer : number = 0;
     
     public update(){
-        super.update();
         // if timer is set, we decrement it
         if( this.timer > 0 ){
             --this.timer;
             // if timer is over
-            if( this.timer <= 0 ) this.interactible.setLocalY(0);
+            if( this.timer <= 0 ) this.interactibles["INTERACT"].setLocalY(0);
         }
     }
     public interact(){
         this.timer = ButtonBlock.TIME;
-        this.interactible.setLocalY(-0.1);
+        this.interactibles["INTERACT"].setLocalY(-0.1);
     }
     public getValue() : boolean{
         return this.timer > 0;
     }
     
 }
-class ToggleBlock extends InteractibleBlock{
+class ToggleBlock extends AbstractBlock{
     
     protected value : boolean = false;
     public awake(){
@@ -38,7 +36,7 @@ class ToggleBlock extends InteractibleBlock{
         return this.value;
     }
     private anim(){
-        this.interactible.setLocalEulerX( this.value ? Util.qPI : -Util.qPI );
+        this.interactibles["INTERACT"].setLocalEulerX( this.value ? Util.qPI : -Util.qPI );
     }
 }
 

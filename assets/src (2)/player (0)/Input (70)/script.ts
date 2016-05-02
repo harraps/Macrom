@@ -10,6 +10,14 @@ interface IInput {
 }
 
 class KeyboardInput implements IInput {
+    
+    public player : Player;
+    
+    public constructor(player : Player){
+        this.player = player;
+        
+    }
+    
     public getMove() : Sup.Math.XYZ{
         let move = {x:0,y:0,z:0}
         if(Game.input.isInputDown("moveF")) ++move.z;

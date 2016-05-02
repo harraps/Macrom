@@ -1,16 +1,12 @@
-class NumberInputBlock extends InteractibleBlock {
+class NumberInputBlock extends AbstractBlock {
     
     public value : number = 0;
     
-    public awake(){
-        super.awake();
-    }
     public update(){
-        super.update();
-        this.label.textRenderer.setText(this.value);
+        this.labels["LABEL"].setText(this.value);
     }
     public interact() {
-        
+        // TODO
     }
     public getValue() : number{
         return this.value;
@@ -19,25 +15,56 @@ class NumberInputBlock extends InteractibleBlock {
         this.value = value;
     }
 }
-
+class RandomBlock extends AbstractBlock{
+    
+    protected value    : number  = Math.random();
+    private wasToggled : boolean = false;
+    
+    public update(){
+        // if the pin A is true
+        if( this.inputs["IN"].value ){
+            // if the pin has just changed of value, we toggle the value
+            if(!this.wasToggled) this.value = Math.random();
+            // the value has already been toggled
+            this.wasToggled = true;
+        }else{
+            // the pin is now false, we can register the next toggle
+            this.wasToggled = false;
+        }
+    }
+    public interact(){
+        this.value = Math.random();
+    }
+    public getValue() : number{
+        return this.value;
+    }
+}
 class PI_Block extends AbstractBlock{
+    
+    protected mod : number = 1;
+    
     public getValue() : number{
-        return Math.PI;
+        return Math.PI*this.mod;
     }
-}
-class EulerBlock extends AbstractBlock{
-    public getValue() : number{
-        return Math.E;
-    }
-}
-class SQRT2_Block extends AbstractBlock{
-    public getValue() : number{
-        return Math.SQRT2;
+    public interact(){
+        this.mod += 0.25;
+        if(this.mod >= 2) this.mod = 0;
+        let text : string;
+        switch(this.mod){
+            case 0    : text="0"    ; break;
+            case 0.25 : text="PI/4" ; break;
+            case 0.5  : text="PI/2" ; break;
+            case 0.75 : text="3PI/4"; break;
+            case 1    : text="PI"   ; break;
+            case 1.25 : text="5PI/4"; break;
+            case 1.5  : text="3PI/2"; break;
+            case 1.75 : text="7PI/4"; break;
+        }
+        if(this.labels["LABEL"]) this.labels["LABEL"].setText(text);
     }
 }
 
 /* REGISTER */
 Sup.registerBehavior(NumberInputBlock);
+Sup.registerBehavior(RandomBlock);
 Sup.registerBehavior(PI_Block);
-Sup.registerBehavior(EulerBlock);
-Sup.registerBehavior(SQRT2_Block);

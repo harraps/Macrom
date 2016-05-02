@@ -1,168 +1,174 @@
-abstract class NumberGateBlock extends InteractibleBlock {
+class OperatorGate extends AbstractBlock{
+    private static add( a:number, b:number ):number{ return a+b; }
+    private static sub( a:number, b:number ):number{ return a-b; }
+    private static mul( a:number, b:number ):number{ return a*b; }
+    private static div( a:number, b:number ):number{ return a/b; }
+    private static mod( a:number, b:number ):number{ return a%b; }
     
-    protected inA : NumberInPin;
+    protected mod : number   = 0;
+    protected fun : Function = OperatorGate.add;
     
-    public awake() {
-        super.awake();
-        this.inA = this.actor.getChild("A").getBehavior(NumberInPin);
-        this.inA.init(this);
-    }
-    public interact(){
-        
-    }
-    public onDestroy(){
-        if(this.inA) this.inA.destroyPin();
-        super.onDestroy();
-    }
-}
-
-abstract class NumberGate2Block extends NumberGateBlock{
-    
-    protected inB : NumberInPin;
-    
-    public awake(){
-        super.awake();
-        this.inB = this.actor.getChild("B").getBehavior(NumberInPin);
-        this.inB.init(this);
-    }
-    public onDestroy(){
-        if(this.inB) this.inB.destroyPin();
-        super.onDestroy();
-    }
-}
-
-class ABS_Gate extends NumberGateBlock{
     public getValue() : number{
-        return Math.abs(this.inA.value);
+        return this.fun(this.inputs["A"].value, this.inputs["B"].value);
     }
-}
-
-class RoundGate1 extends NumberGateBlock{
-    public modifier : number = 0;
-    protected func : Function = Math.round;
     public interact(){
-        ++this.modifier;
-        if(this.modifier > 3) this.modifier = 0;
-        let text = this.label ? this.label.textRenderer : {setText(text){}};
-        switch(this.modifier){
-            case 0 : text.setText("Round"); this.func = Math.round; break;
-            case 1 : text.setText("Floor"); this.func = Math.floor; break;
-            case 2 : text.setText("Ceil" ); this.func = Math.ceil ; break;
+        ++this.mod;
+        if(this.mod >= 5) this.mod = 0;
+        let text : string;
+        switch(this.mod){ // +-×÷
+            case 0 : this.fun=OperatorGate.add; text="+"  ; break;
+            case 1 : this.fun=OperatorGate.sub; text="-"  ; break;
+            case 2 : this.fun=OperatorGate.mul; text="×"  ; break;
+            case 3 : this.fun=OperatorGate.div; text="÷"  ; break;
+            case 4 : this.fun=OperatorGate.mod; text="MOD"; break;
         }
-    }
-    public getValue() : number{
-        return this.func(this.inA.value);
+        if(this.labels["LABEL"]) this.labels["LABEL"].setText(text);
     }
 }
-
-class TrigoGate extends NumberGateBlock{
-    public modifier : number = 0;
-    protected func : Function = Math.sin;
+class CompareGate extends AbstractBlock{
+    private static  equals( a:number, b:number):boolean{ return a==b; }
+    private static  differ( a:number, b:number):boolean{ return a!=b; }
+    private static smaller( a:number, b:number):boolean{ return a<=b; }
+    private static SMALLER( a:number, b:number):boolean{ return a< b; }
+    private static greater( a:number, b:number):boolean{ return a>=b; }
+    private static GREATER( a:number, b:number):boolean{ return a> b; }
+    
+    protected mod : number   = 0;
+    protected fun : Function = CompareGate.equals;
+    
+    public getValue() : number{
+        return this.fun(this.inputs["A"].value, this.inputs["B"].value);
+    }
     public interact(){
-        ++this.modifier;
-        if(this.modifier > 6) this.modifier = 0;
-        let text = this.label ? this.label.textRenderer : {setText(text){}};
-        switch(this.modifier){
-            case 0 : text.setText( "SIN"); this.func = Math. sin; break;
-            case 1 : text.setText( "COS"); this.func = Math. cos; break;
-            case 2 : text.setText( "TAN"); this.func = Math. tan; break;
-            case 3 : text.setText("ASIN"); this.func = Math.asin; break;
-            case 4 : text.setText("ACOS"); this.func = Math.acos; break;
-            case 5 : text.setText("ATAN"); this.func = Math.atan; break;
+        ++this.mod;
+        if(this.mod >= 6) this.mod = 0;
+        let text : string;
+        switch(this.mod){
+            case 0 : this.fun=CompareGate. equals; text="="; break;
+            case 1 : this.fun=CompareGate. differ; text="≠"; break;
+            case 2 : this.fun=CompareGate.smaller; text="≤"; break;
+            case 3 : this.fun=CompareGate.SMALLER; text="<"; break;
+            case 4 : this.fun=CompareGate.greater; text="≥"; break;
+            case 5 : this.fun=CompareGate.GREATER; text=">"; break;
         }
+        if(this.labels["LABEL"]) this.labels["LABEL"].setText(text);
     }
+}
+class AbsoluteGate extends AbstractBlock{
+    private static nabs( value:number ):number{ return -Math.abs(value); }
+    
+    protected mod : boolean  = false;
+    protected fun : Function = Math.abs;
+    
     public getValue() : number{
-        return this.func(this.inA.value);
+        return Math.abs(this.inputs["IN"].value);
     }
+    public interact(){
+        this.mod = !this.mod;
+        this.fun = this.mod ? AbsoluteGate.nabs : Math.abs;
+        if(this.labels["LABEL"]) this.labels["LABEL"].setText(this.mod ? "-|x|" : "|x|");
+    }
+}
+class RoundGate extends AbstractBlock{
+    
+    protected mod : number   = 0;
+    protected fun : Function = Math.round;
+    
+    public getValue() : number{
+        return this.fun(this.inputs["IN"].value);
+    }
+    public interact(){
+        ++this.mod;
+        if(this.mod >= 3) this.mod = 0;
+        let text : string;
+        switch(this.mod){ // ≈↕↑↓
+            case 0 : this.fun=Math.round; text="≈↕"; break;
+            case 1 : this.fun=Math.floor; text="≈↓"; break;
+            case 2 : this.fun=Math.ceil ; text="≈↑"; break;
+        }
+        if(this.labels["LABEL"]) this.labels["LABEL"].setText(text);
+    }
+}
+class ExtremeGate extends AbstractBlock{
+    
+    protected mod : boolean  = false;
+    protected fun : Function = Math.min;
+    
+    public getValue() : number{
+        let values = [];
+        for( let id in this.inputs ){
+            if(this.inputs[id].value != null) values[values.length] = this.inputs[id].value;
+        }
+        return this.fun.apply(null, values);
+    }
+    public interact(){
+        this.mod = !this.mod;
+        this.fun = this.mod ? Math.max : Math.min;
+        if(this.labels["LABEL"]) this.labels["LABEL"].setText(this.mod ? "MAX" : "MIN");
+    }
+}
+class TrigonometryGate extends AbstractBlock{
+    
+    protected mod : number   = 0;
+    protected fun : Function = Math.sin;
+    
+    public getValue() : number{
+        return this.fun(this.inputs["IN"].value);
+    }
+    public interact(){
+        ++this.mod;
+        if(this.mod >= 6) this.mod = 0;
+        let text : string;
+        switch(this.mod){
+            case 0 : this.fun=Math. sin; text= "SIN"; break;
+            case 1 : this.fun=Math. cos; text= "COS"; break;
+            case 2 : this.fun=Math. tan; text= "TAN"; break;
+            case 3 : this.fun=Math.asin; text="ASIN"; break;
+            case 4 : this.fun=Math.acos; text="ACOS"; break;
+            case 5 : this.fun=Math.atan; text="ATAN"; break;
+        }
+        if(this.labels["LABEL"]) this.labels["LABEL"].setText(text);
+    }
+}
+class ATAN2_Gate extends AbstractBlock{
+    public getValue() : number{
+        return Math.atan2(this.inputs["Y"].value, this.inputs["X"].value);
+    }
+    public interact(){}
 }
 
-class ATAN2_Gate extends NumberGate2Block{
+class PowerGate extends AbstractBlock{
     public getValue() : number{
-        return Math.atan2(this.inA.value, this.inB.value);
+        return Math.pow(this.inputs["X"].value, this.inputs["Y"].value);
     }
+    public interact(){}
 }
-
-class RoundGate extends NumberGateBlock{
+class SquareGate extends AbstractBlock{
+    private static square( value:number ):number{ return value*value; }
+    
+    protected mod : boolean  = false;
+    protected fun : Function = SquareGate.square;
+    
     public getValue() : number{
-        return Math.round(this.inA.value);
+        return Math.abs(this.inputs["IN"].value);
     }
-}
-
-class SIN_Gate extends NumberGateBlock{
-    public getValue() : number{
-        return Math.sin(this.inA.value);
-    }
-}
-class COS_Gate extends NumberGateBlock{
-    public getValue() : number{
-        return Math.cos(this.inA.value);
-    }
-}
-class TAN_Gate extends NumberGateBlock{
-    public getValue() : number{
-        return Math.tan(this.inA.value);
-    }
-}
-class ASIN_Gate extends NumberGateBlock{
-    public getValue() : number{
-        return Math.asin(this.inA.value);
-    }
-}
-class ACOS_Gate extends NumberGateBlock{
-    public getValue() : number{
-        return Math.asin(this.inA.value);
-    }
-}
-class ATAN_Gate extends NumberGateBlock{
-    public getValue() : number{
-        return Math.atan(this.inA.value);
-    }
-}
-
-class ADD_Gate extends NumberGate2Block{
-    public getValue() : number{
-        return this.inA.value + this.inB.value;
-    }
-}
-class SUB_Gate extends NumberGate2Block{
-    public getValue() : number{
-        return this.inA.value - this.inB.value;
-    }
-}
-class MUL_Gate extends NumberGate2Block{
-    public getValue() : number{
-        return this.inA.value * this.inB.value;
-    }
-}
-class DIV_Gate extends NumberGate2Block{
-    public getValue() : number{
-        return this.inA.value / this.inB.value;
-    }
-}
-class MOD_Gate extends NumberGate2Block{
-    public getValue() : number{
-        return this.inA.value % this.inB.value;
+    public interact(){
+        this.mod = !this.mod;
+        this.fun = this.mod ? SquareGate.square : Math.sqrt;
+        if(this.labels["LABEL"]) this.labels["LABEL"].setText(this.mod ? "x²" : "√x"); // √²
     }
 }
 
 /* REGISTER */
-Sup.registerBehavior( SIN_Gate);
-Sup.registerBehavior( COS_Gate);
-Sup.registerBehavior( TAN_Gate);
-Sup.registerBehavior(ASIN_Gate);
-Sup.registerBehavior(ACOS_Gate);
-Sup.registerBehavior(ATAN_Gate);
+Sup.registerBehavior(OperatorGate);
+Sup.registerBehavior(AbsoluteGate);
 
-Sup.registerBehavior(SUB_Gate);
-Sup.registerBehavior(MUL_Gate);
-Sup.registerBehavior(DIV_Gate);
-Sup.registerBehavior(MOD_Gate);
+Sup.registerBehavior(  RoundGate);
+Sup.registerBehavior(ExtremeGate);
 
-Sup.registerBehavior(ADD_Gate);
-Sup.registerBehavior(SUB_Gate);
-Sup.registerBehavior(MUL_Gate);
-Sup.registerBehavior(DIV_Gate);
-Sup.registerBehavior(MOD_Gate);
+Sup.registerBehavior(TrigonometryGate);
+Sup.registerBehavior(      ATAN2_Gate);
 
-
+Sup.registerBehavior( PowerGate);
+Sup.registerBehavior(SquareGate);
 

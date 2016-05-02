@@ -1,16 +1,14 @@
-class TextInputBlock extends InteractibleBlock {
+class TextInputBlock extends AbstractBlock {
     
     protected value : string = "";
     
-    public awake(){
-        super.awake();
-    }
-    
     public interact() {
-        
+        // TODO
     }
     public getValue() : string{
         return this.value;
     }
 }
+
+/* REGISTER */
 Sup.registerBehavior(TextInputBlock);

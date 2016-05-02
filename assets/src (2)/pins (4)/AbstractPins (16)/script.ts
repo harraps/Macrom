@@ -13,16 +13,8 @@ abstract class AbstractPin extends Sup.Behavior{
     
     protected block : AbstractBlock; // the block to which the pin is attached to (   not null)
     
-    public awake() {
-        // we activate wireframe mode
-        //(<any>this.actor.modelRenderer).__inner.material.wireframe = true;
-    }
     public init( block : AbstractBlock ){
         this.block = block;
-    }
-    public update(){
-        // we have used the value for this update
-        this.value = null;
     }
     
     public abstract connect( pin : AbstractPin );
@@ -46,7 +38,6 @@ abstract class InPin extends AbstractPin {
     }
     
     public awake() {
-        super.awake();
         // we add the pin to the list
         Game.board.addInPin(this);
         
@@ -57,12 +48,10 @@ abstract class InPin extends AbstractPin {
         this.wire = this.actor.getChild("WIRE");
         // we set the wire length to a value very close to 0 (but not 0)
         this.wire.setLocalScaleZ(0.01);
-        // we enable wireframe mode
-        //(<any>this.wire.modelRenderer ).__inner.material.wireframe = true;
     }
 
     public update() {
-        super.update();
+        this.value = null;
         // we recover the value from the connected outPin
         if( this.outpin ){ // if not null
             this.value = this.outpin.value;
@@ -107,14 +96,13 @@ abstract class OutPin extends AbstractPin {
     protected inpins : InPin[];
     
     public awake(){
-        super.awake();
         this.inpins = [];
         // we add the pin to the list
         Game.board.addOutPin(this);
     }
     
     public update() {
-        super.update();
+        this.value = null;
         // we recover the value from the parent block
         if( this.block ){ // if not null
             this.value = this.block.getValue(this);

@@ -5,9 +5,9 @@
   "pixelsPerUnit": 64,
   "size": 32,
   "color": "ffffff",
-  "gridWidth": 8,
-  "gridHeight": 16,
-  "charset": null,
+  "gridWidth": 9,
+  "gridHeight": 14,
+  "charset": " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~⌂αβΓπΣσµτΦΘΩδ∞φε∩≡±≥≤⌠⌡÷≈°∙·√ⁿ²■⊂ÇüéâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒáíóúñÑªº¿⌐¬½¼¡«»≠×ˣʸ↕↑↓",
   "charsetOffset": 0,
   "opacity": null
 }

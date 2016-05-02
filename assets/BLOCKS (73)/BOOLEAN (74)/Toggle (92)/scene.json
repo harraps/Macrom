@@ -34,7 +34,7 @@
         },
         {
           "id": "2",
-          "name": "A",
+          "name": "IN",
           "children": [],
           "components": [],
           "position": {
@@ -61,14 +61,14 @@
         },
         {
           "id": "4",
-          "name": "LABEL",
+          "name": "#LABEL",
           "children": [],
           "components": [
             {
               "type": "TextRenderer",
               "config": {
                 "fontAssetId": "57",
-                "text": "Toggle\n",
+                "text": "Toggle",
                 "alignment": "center",
                 "size": 32,
                 "color": null,
@@ -82,14 +82,14 @@
           ],
           "position": {
             "x": 0,
-            "y": -0.2,
+            "y": -0.35,
             "z": 0
           },
           "orientation": {
-            "x": 0,
+            "x": -0.7071067811865475,
             "y": 0,
             "z": 0,
-            "w": 1
+            "w": 0.7071067811865476
           },
           "scale": {
             "x": 1,

@@ -6,32 +6,21 @@ class BoolOutput extends AbstractBlock {
     protected colorHigh : Sup.Color;
     protected colorLow  : Sup.Color;
     
-    protected input : BoolInPin;
-    
     public awake() {
         super.awake();
         
         this.colorHigh = Game.getColor(this.color_high);
         this.colorLow  = Game.getColor(this.color_low );
-        
-        this.input = this.actor.getChild("IN").getBehavior(BoolInPin);
-        this.input.init(this);
     }
-
     public update() {
-        this.setColor(this.input.value);
+        this.setColor(this.inputs["IN"].value);
     }
     
-    public getValue(){
-        return null;
-    }
+    public getValue(){}
+    public interact(){}
     
     public setColor( ON : boolean ){
         this.actor.modelRenderer.setColor( ON ? this.colorHigh : this.colorLow );
-    }
-    public onDestroy(){
-        if(this.input) this.input.destroyPin();
-        super.onDestroy();
     }
 }
 Sup.registerBehavior(BoolOutput);

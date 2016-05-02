@@ -31,24 +31,37 @@ class Board extends Sup.Behavior {
             z: this.z + this.depth  - 1
         };
         Game.board = this;
+        
+        let grid = this.actor.getChild("GRID");
+        if(grid)
+            if(grid.modelRenderer)
+                // we enable wireframe mode
+                (<any>grid.modelRenderer ).__inner.material.wireframe = true;
     }
     
     /* ADD */
     public addInPin(inpin : InPin){
-        if(!inpin) return; // if null we don't add the element to the list
-        Util.listAdd(this.inpins, inpin.actor);
+        if(inpin){
+            if(Board.canRayCast(inpin.actor)) Util.listAdd(this.inpins, inpin.actor);
+            else Sup.log("Invalid Input Pin, needs an raycastable actor");
+        }else Sup.log("Input Pin is null");
     }
     public addOutPin(outpin : OutPin){
-        if(!outpin) return; // if null we don't add the element to the list
-        Util.listAdd(this.outpins, outpin.actor);
+        if(outpin){
+            if(Board.canRayCast(outpin.actor)) Util.listAdd(this.outpins, outpin.actor);
+            else Sup.log("Invalid Output Pin, needs an raycastable actor");
+        }else Sup.log("Output Pin is null");
     }
     public addBlock(block : AbstractBlock){
-        if(!block) return; // if null we don't add the element to the list
-        Util.listAdd(this.blocks, block.actor);
+        if(block){
+            if(Board.canRayCast(block.actor)) Util.listAdd(this.blocks, block.actor);
+            else Sup.log("Invalid Block, needs an raycastable actor");
+        }else Sup.log("Block is null");
     }
-    public addInteractible(interactible : InteractibleBlock){
-        if(!interactible) return; // if null we don't add the element to the list
-        Util.listAdd(this.interactibles, interactible.interactible);
+    public addInteractible(actor : Sup.Actor){
+        if(Board.canRayCast(actor))
+            Util.listAdd(this.interactibles, actor);
+        else Sup.log("Invalid Interactible, needs an raycastable actor");
     }
     
     /* REMOVE */
@@ -61,8 +74,8 @@ class Board extends Sup.Behavior {
     public removeBlock(block : AbstractBlock){
         Util.listRemove(this.blocks, block.actor);
     }
-    public removeInteractible(interactible : InteractibleBlock){
-        Util.listRemove(this.interactibles, interactible.interactible);
+    public removeInteractible(actor : Sup.Actor){
+        Util.listRemove(this.interactibles, actor);
     }
     
     public placeBlock( path : IPath, pos : Sup.Math.Vector3, rot : number ){
@@ -102,6 +115,21 @@ class Board extends Sup.Behavior {
         if( pos.y < this.minPos.y || this.maxPos.y < pos.y ) return false;
         if( pos.z < this.minPos.z || this.maxPos.z < pos.z ) return false;
         return true;
+    }
+    
+    protected static canRayCast( actor : Sup.Actor ) : boolean {
+        // if the actor is not null
+        if(actor){
+            // if it has a component which can be used to perform raycasts
+            if(
+                actor.modelRenderer ||
+                actor.cubicModelRenderer ||
+                actor.spriteRenderer ||
+                actor.tileMapRenderer ||
+                actor.textRenderer
+            ) return true;
+        }
+        return false;
     }
 }
 Sup.registerBehavior(Board);

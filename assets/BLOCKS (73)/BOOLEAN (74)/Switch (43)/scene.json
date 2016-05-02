@@ -34,7 +34,7 @@
         },
         {
           "id": "3",
-          "name": "INTERACT",
+          "name": "#INTERACT",
           "children": [],
           "components": [
             {
